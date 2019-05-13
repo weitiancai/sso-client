@@ -1,0 +1,27 @@
+server:
+  port: 8082
+  context-path: /ui
+  session:
+    cookie:
+      name: UISESSION
+
+auth-server: http://localhost:8081/auth
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: ClientId  #客户端 id
+      clientSecret: secret # 客户端的 密码
+      accessTokenUri: http://localhost:8081/auth/oauth/token
+      userAuthorizationUri: http://localhost:8081/auth/oauth/authorize
+
+    resource:
+      userInfoUri: http://localhost:8081/auth/rest/hello/principal
+
+
+
+spring:
+  thymeleaf:
+    cache: false
